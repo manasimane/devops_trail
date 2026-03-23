@@ -2,13 +2,13 @@ pipeline{
   agent any
 
   stages{
-    stage("checkout scm"){
+    stage('checkout scm'){
       steps{
         checkout scm
       }
     }
 
-    stage("Build"){
+    stage('Build'){
       steps{
         echo "I'm inside Build"
       }
