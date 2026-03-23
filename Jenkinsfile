@@ -14,12 +14,12 @@ pipeline{
     }
     stage('Docker Build'){
       steps{
-      docker build -t docker_image:1 .
+      sh 'docker build -t docker_image:1 .'
         }
     }
     stage('Docker run'){
       steps{
-        docker run -d -p 70:71 --name docker_container docker_image:1
+        ah 'docker run -d -p 70:71 --name docker_container docker_image:1'
       }
     }
   }
