@@ -19,7 +19,7 @@ pipeline{
     }
     stage('Docker run'){
       steps{
-        ah 'docker run -d -p 70:71 --name docker_container docker_image:1'
+        sh 'docker run -d -p 70:71 --name docker_container docker_image:1'
       }
     }
   }
