@@ -17,6 +17,14 @@ pipeline{
         sh 'docker rm -f docker_container:${BUILD_NUMBER} || true'
       }
     }
+    stage('Dockerhub Push'){
+      steps{
+        sh '''
+        docker login 
+        docker push docker_image:${BUILD_NUMBER} 
+        '''
+      }
+    }
     stage('Docker run'){
       steps{
         sh 'docker run -d -p 8080:71 --name docker_container docker_image:${BUILD_NUMBER}'
